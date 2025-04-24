@@ -3,8 +3,8 @@ import jivas from "./assets/jivas.png";
 import aloo from "./assets/alooParatha.jpeg";
 import egg from "./assets/eggFriedRice.jpeg";
 import order from "./assets/orderYoursNow.jpeg";
-import menu1 from "./assets/menu1.png";
-import menu2 from "./assets/menu2.png";
+import menu1 from "./assets/menu1.jpeg";
+import menu2 from "./assets/menu2.jpeg";
 import "./App.css";
 
 function App() {
@@ -117,6 +117,7 @@ function App() {
         </a>
         <p> Do follow our 💗 Instagram Page for Offers 🎁 and Updates !!!</p>
       </div>
+      
       <a
         href={wplink}
         target="_blank"
@@ -128,6 +129,7 @@ function App() {
           alt="WhatsApp"
           style={{ width: "96px", height: "96px" }}
         />
+        
       </a>
       
     </>
