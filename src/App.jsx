@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import jivas from "./assets/jivas.png";
 import aloo from "./assets/alooParatha.jpeg";
 import egg from "./assets/eggFriedRice.jpeg";
@@ -8,10 +8,38 @@ import menu2 from "./assets/menu2.png";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  console.log(navigator.userAgent);
-  const mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-console.log('Current mode:', mode);
+
+  const [locationLink, setLocationLink] = useState("");
+
+  async function getUserLocationLink() {
+    if (!navigator.geolocation) {
+      throw new Error("Geolocation is not supported by your browser");
+    }
+
+    const position = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    return `https://www.google.com/maps?q=${lat},${lon}`;
+  }
+
+  useEffect(() => {
+    async function fetchLocation() {
+      try {
+        const link = await getUserLocationLink();
+        setLocationLink(link);
+      } catch (err) {
+        console.error("Error fetching location:", err);
+      }
+    }
+
+    fetchLocation();
+  }, []);
+
+  // ✅ wplink now uses the actual resolved locationLink
+  const wplink = `https://wa.me/919113064924?text=Hi%2C%20I%20want%20to%20order%20from%20Jiva%27s%20Rasoi%21%20Here's%20my%20location%20${encodeURIComponent(locationLink)}`;
 
   return (
     <>
@@ -19,6 +47,7 @@ console.log('Current mode:', mode);
       <a href="https://www.instagram.com/jivas_rasoi/?hl=en" target="_blank">
         <img src={jivas} className="logo" alt="Jiva's logo" />
       </a>
+      {console.log(async () => await getUserLocationLink())}
       {/* </div> */}
       <h3 className="custom-font">Redifining Homemade Taste </h3>
       <div className="card">
@@ -89,7 +118,7 @@ console.log('Current mode:', mode);
         <p> Do follow our 💗 Instagram Page for Offers 🎁 and Updates !!!</p>
       </div>
       <a
-        href="https://wa.me/919113064924?text=Hi%2C%20I%20want%20to%20order%20from%20Jiva%27s%20Rasoi%21"
+        href={wplink}
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float"
@@ -100,6 +129,7 @@ console.log('Current mode:', mode);
           style={{ width: "96px", height: "96px" }}
         />
       </a>
+      
     </>
   );
 }
