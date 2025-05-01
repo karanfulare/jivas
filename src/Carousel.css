@@ -1,0 +1,65 @@
+.simple-carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 75%;
+  text-align: center;
+  padding-bottom: 40px; /* Adds space at the bottom for the controls */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.carousel-item p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+@font-face {
+  font-family: 'YourFont';
+  src: url('./assets/bulgatti.regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  font-family: 'YourFont', sans-serif;
+}
+
+.carousel-controls {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  z-index: 1; /* Ensures the controls stay on top of the carousel */
+}
+
+.buttonclass {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+}
+
+p {
+  margin-bottom: 110px;
+  padding-bottom: 120px;
+}

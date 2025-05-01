@@ -5,6 +5,9 @@ import egg from "./assets/eggFriedRice.jpeg";
 import order from "./assets/orderYoursNow.jpeg";
 import menu1 from "./assets/menu1.jpeg";
 import menu2 from "./assets/menu2.jpeg";
+import Smoothies from "./assets/Smoothie.jpeg";
+import ImageCarousel from "./Carousel.jsx";
+import ParathaCarousel from "./paratha.jsx";
 import "./App.css";
 
 function App() {
@@ -50,6 +53,7 @@ function App() {
       {console.log(async () => await getUserLocationLink())}
       {/* </div> */}
       <h3 className="custom-font">Redifining Homemade Taste </h3>
+     
       <div className="card">
         {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -79,11 +83,31 @@ function App() {
         </a>
       </div>
       <br></br>
-      <div>
+      
+      {/* <div>
         <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
           <img src={aloo} className="images" alt="paratha" />
         </a>
+      </div> */}
+      <br></br>
+      <h2> The OG Smoothie </h2>
+      <h5>🥤 OBD Smoothie
+      A creamy, no-sugar power smoothie with oats 🌾, dates 🌰, banana 🍌, dry fruits 🥜 & milk 🥛 — natural energy in every sip! 💪✨</h5>
+      <div>
+        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+          <img src={Smoothies} className="images" alt="Smoothies" />
+        </a>
       </div>
+      <br></br>
+      <h2>Paratha's you won't miss </h2>
+      <ParathaCarousel/>
+      <br></br>
+      <h3> Want Protein, we have it ⤵️ </h3>
+      <h4> swipe left for more ... </h4>
+      
+         <ImageCarousel/>
+      <br></br>
+      <br></br>
       <div>
         <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
           <img src={order} className="images" alt="order now" />
