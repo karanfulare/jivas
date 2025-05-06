@@ -2,29 +2,29 @@ import React, { useState, useRef } from "react";
 import soyaSalad from "./assets/soyaSalad.jpeg";
 import egg from "./assets/Eggs.jpeg";
 import Chickpea from "./assets/chickpeaSalad.jpeg";
-import Chickpea2 from "./assets/ChickPea.jpeg";
+import paneer from "./assets/paneerSalad.jpeg";
 import "./Carousel.css";
 
 const images = [
   { 
     src: soyaSalad, 
-    alt: "Soya Salad", 
-    caption: " (~22 gm protien) A protein-rich bowl of spiced soya chunks 🍲 mixed with cucumber 🥒, tomato 🍅, onion 🧅, and fresh coriander 🌿, topped with a creamy homemade coriander-curd dressing 🥣 — refreshing, nourishing, and full of flavor."
+    alt: "Protein Soya bowl", 
+    caption: " (~22 gm protien)  A protein-rich bowl of spiced soya chunks  mixed with cucumber, tomato, onion , and seasonal veggies , topped with a creamy homemade coriander-curd dressing  — refreshing, nourishing, and full of flavor."
   },
   { 
     src: egg, 
-    alt: "Egg", 
-    caption: " 🥚🥚🥚 x10 protein-packed boiled eggs tossed in 🌶️ pickled spices, 🧅 crisp onions, 🍅 juicy tomatoes, and 🌿 fresh coriander — a bold, desi-style power bowl in every bite!"
+    alt: "Boiled Egg", 
+    caption: " 1 x 10 protein-packed boiled eggs tossed in  pickled spices,  crisp onions, juicy tomatoes, and fresh coriander — a bold, desi-style power bowl in every bite!"
   },
   { 
     src: Chickpea, 
-    alt: "Chickpea Salad", 
-    caption: " (~20 gm protien)🧆 Protein-rich chickpeas mixed with 🧅 onions, 🍅 tomatoes, and 🌿 fresh coriander, tossed in zesty 🌶️ spices — a wholesome, earthy bowl full of flavor and power!"
+    alt: "Rosted Chickpea Salad", 
+    caption: " (~20 gm protien)  Protein-rich chickpeas mixed with  onions,  tomatoes, cucumber and veggies, tossed in zesty spices —comes with a creamy dressing -  a wholesome, earthy bowl full of flavor and power!"
   },
   { 
-    src: Chickpea2, 
-    alt: "Order Now", 
-    caption: " We also serve Paneer (100 gm) salad (~22 gm protien)  !!! Order now and enjoy homemade goodness!"
+    src: paneer, 
+    alt: "Grilled Paneer Salad", 
+    caption: "(~24 gm protein) A clean, high-protein bowl packed with soft paneer chunks and fiber-rich seasonal veggies like cucumber, tomato, and onion — perfect for post-workout recovery or a balanced, nutrient-dense meal."
   }
 ];
 

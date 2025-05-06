@@ -7,13 +7,13 @@ import "./Carousel.css";
 const images = [
   { 
     src: aloo, 
-    alt: " 🥔 Aloo Paratha", 
-    caption: "Flaky whole wheat flatbread stuffed with spiced mashed potatoes 🥔, cooked golden with ghee 🧈, and served with homemade pickle 🥒 and curd 🥣 — a comfort-filled desi classic you can’t resist!"
+    alt: "Aloo Paratha", 
+    caption: "Flaky whole wheat flatbread stuffed with spiced mashed potatoes , cooked golden with ghee , and served with pickle  and curd — a comfort-filled desi classic you can’t resist!"
   },
   { 
     src: palakParatha, 
-    alt: "🌿 Palak Paratha", 
-    caption: "Wholesome palak paratha 🫓 packed with iron-rich spinach 🌿, mild masalas 🌶️, aur served with dahi 🥣 — tasty bhi, healthy bhi 💪 Perfect start to your day! ☀️"
+    alt: "Palak Paratha", 
+    caption: "Wholesome palak paratha packed with iron-rich spinach, mild masalas , aur served with dahi  — tasty bhi, healthy bhi 💪 Perfect start to your day! "
   },
   { 
     src: aloo2, 
