@@ -100,6 +100,7 @@ function App() {
       </div>
       <br></br>
       <h2>Paratha's you won't miss </h2>
+      <h4> swipe left for more ... </h4>
       <ParathaCarousel/>
       <br></br>
       <h3> Want Protein, we have it ⤵️ </h3>
