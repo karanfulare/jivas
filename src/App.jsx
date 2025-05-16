@@ -8,6 +8,7 @@ import menu2 from "./assets/menu2.jpeg";
 import Smoothies from "./assets/Smoothie.jpeg";
 import ImageCarousel from "./Carousel.jsx";
 import ParathaCarousel from "./paratha.jsx";
+import CakesCarousel from "./cakes.jsx";
 import "./App.css";
 
 function App() {
@@ -109,6 +110,12 @@ function App() {
          <ImageCarousel/>
       <br></br>
       <br></br>
+      
+      <h2> Sweet Cravings ??? </h2>
+      <h4> swipe left for more ... </h4>
+      
+         <CakesCarousel/>
+      
       <div>
         <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
           <img src={order} className="images" alt="order now" />
