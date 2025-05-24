@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       {/* <div> */}
-      <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+      <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
         <img src={jivas} className="logo" alt="Jiva's logo" />
       </a>
       {console.log(async () => await getUserLocationLink())}
@@ -67,26 +67,26 @@ function App() {
         Explore our Dishes , Scroll Down ⤵️
       </p> */}
       <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={menu1} className="images" alt="menu1" />
         </a>
       </div>
       <br></br>
       <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={menu2} className="images" alt="menu2" />
         </a>
       </div>
       <br></br>
       <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={egg} className="images" alt="egg fried rice" />
         </a>
       </div>
       <br></br>
       
       {/* <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={aloo} className="images" alt="paratha" />
         </a>
       </div> */}
@@ -95,7 +95,7 @@ function App() {
       <h5>🥤 OBD Smoothie
       A creamy, no-sugar power smoothie with oats 🌾, dates 🌰, banana 🍌, dry fruits 🥜 & milk 🥛 — natural energy in every sip! 💪✨</h5>
       <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={Smoothies} className="images" alt="Smoothies" />
         </a>
       </div>
@@ -117,7 +117,7 @@ function App() {
          <CakesCarousel/>
       
       <div>
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en" target="_blank">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en" target="_blank">
           <img src={order} className="images" alt="order now" />
         </a>
         {/* <h3>
@@ -144,7 +144,7 @@ function App() {
       </div>
       <br></br>
       <div className="insta">
-        <a href="https://www.instagram.com/jivas_homemade_goodness/?hl=en">
+        <a href="https://www.instagram.com/jivas_kitchen/?hl=en">
           Insta Jiva's Rasoi 🫰
         </a>
         <p> Do follow our 💗 Instagram Page for Offers 🎁 and Updates !!!</p>
