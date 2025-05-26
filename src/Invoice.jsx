@@ -140,52 +140,79 @@ link.click();
             style={{ display: 'block', marginBottom: 16 }}
           />
 
-          <div ref={invoiceRef} style={{ padding: 16, marginTop: 16, backgroundColor: '#fff', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
-            <h2 style={{ textAlign: "center" }}> Jiva's</h2>
-            <h3 style={{ textAlign: "center" }}> Home Made Goodness</h3>
-            <p><strong>Customer:</strong> {customer.name} ({customer.phone})</p>
-<p><strong>Date:</strong> {formatDateTime(invoiceDate)}</p>
+          <div
+  ref={invoiceRef}
+  style={{
+    padding: 16,
+    marginTop: 16,
+    backgroundColor: '#fff',
+    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+    fontSize: '14px',
+    fontFamily: 'sans-serif',
+    lineHeight: '1.4',
+    color: '#000'
+  }}
+>
+  <h2 style={{ textAlign: "center", margin: 0, paddingBottom: 4 }}>Jiva's</h2>
+  <p style={{ margin: '4px 0' }}>
+    <strong>Customer:</strong> {customer.name} ({customer.phone})
+  </p>
+  <p style={{ margin: '4px 0' }}>
+    <strong>Date:</strong> {formatDateTime(invoiceDate)}
+  </p>
 
-            <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 16 }} border="1">
-              <thead>
-                <tr style={{ backgroundColor: '#eee' }}>
-                  <th>Item</th>
-                  <th>Qty</th>
-                  <th>Price</th>
-                  <th>Discount</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selectedItems.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.name}</td>
-                    <td>
-                      <input
-                        type="number"
-                        value={item.qty}
-                        onChange={(e) => updateItem(item.id, 'qty', e.target.value)}
-                        style={{ width: 40 }}
-                      />
-                    </td>
-                    <td>₹{item.cost}</td>
-                    <td>
-                      <input
-                        type="number"
-                        value={item.discount}
-                        onChange={(e) => updateItem(item.id, 'discount', e.target.value)}
-                        style={{ width: 50 }}
-                      />
-                    </td>
-                    <td>₹{(item.cost * item.qty) - item.discount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p style={{ marginTop: 16 }}>Subtotal: ₹{getSubtotal()}</p>
-            <p>Total Discount: ₹{getDiscountTotal()}</p>
-            <h3>Total: ₹{getFinalTotal()}</h3>
-          </div>
+  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }} border="1">
+    <thead>
+      <tr style={{ backgroundColor: '#eee' }}>
+        <th style={{ padding: 4 }}>Item</th>
+        <th style={{ padding: 4 }}>Qty</th>
+        <th style={{ padding: 4 }}>Price</th>
+        <th style={{ padding: 4 }}>Discount</th>
+        <th style={{ padding: 4 }}>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {selectedItems.map((item) => (
+        <tr key={item.id}>
+          <td style={{ padding: 4 }}>{item.name}</td>
+          <td style={{ padding: 4 }}>
+            <input
+              type="number"
+              value={item.qty}
+              onChange={(e) => updateItem(item.id, 'qty', e.target.value)}
+              style={{ width: 40 }}
+            />
+          </td>
+          <td style={{ padding: 4, textAlign: "right" }}>₹{item.cost}</td>
+          <td style={{ padding: 4 }}>
+            <input
+              type="number"
+              value={item.discount}
+              onChange={(e) => updateItem(item.id, 'discount', e.target.value)}
+              style={{ width: 50 }}
+            />
+          </td>
+          <td style={{ padding: 4, textAlign: "right" }}>
+            ₹{(item.cost * item.qty) - item.discount}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div style={{ marginTop: 8 }}>
+    <p style={{ margin: '4px 0' }}>Subtotal: ₹{getSubtotal()}</p>
+    {getDiscountTotal() > 0 && (
+      <p style={{ margin: '4px 0' }}>Total Discount: ₹{getDiscountTotal()}</p>
+    )}
+    <h3 style={{ margin: '6px 0' }}>Total: ₹{getFinalTotal()}</h3>
+  </div>
+
+  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold" }}>
+    Thank you for your order!
+  </p>
+</div>
+
 
           <button onClick={generateImage} style={{ marginTop: 12 }}>
             Generate Invoice Image
@@ -196,67 +223,52 @@ link.click();
 <div id="clean-invoice" style={{
   display: 'none',
   padding: '16px',
-  fontFamily: "Arial, sans-serif",
-  width: "300px",
-  backgroundColor: "#fff",
-  color: "#333",
-  border: "2px solid #007bff",
-  borderRadius: "10px"
+  fontFamily: 'sans-serif',
+  width: '300px',
+  fontSize: '14px',
+  lineHeight: '1.4',
+  color: '#000'
 }}>
-  <h2 style={{
-    textAlign: "center",
-    color: "#007bff",
-    marginBottom: "8px"
-  }}>Jiva's Rasoi</h2>
-    <h3 style={{ textAlign: "center" }}> Home Made Goodness</h3>
-  <p style={{ fontSize: "14px", margin: "4px 0" }}>
-    <strong>Customer:</strong> {customer.name} ({customer.phone})
-  </p>
-  <p style={{ fontSize: "14px", margin: "4px 0" }}>
-  <strong>Date:</strong> {formatDateTime(invoiceDate)}
-</p>
-  <table style={{
-    width: "100%",
-    borderCollapse: "collapse",
-    marginTop: "12px",
-    fontSize: "13px"
-  }} border="1">
-    <thead style={{ backgroundColor: "#f0f8ff" }}>
-      <tr>
-        <th>Item</th>
-        <th>Qty</th>
-        <th>Price</th>
-        <th>Discount</th>
-        <th>Total</th>
+  <h2 style={{ textAlign: "center", margin: 0, paddingBottom: 4 }}>Jiva's</h2>
+  <p style={{ margin: '4px 0' }}><strong>Customer:</strong> {customer.name} ({customer.phone})</p>
+  <p style={{ margin: '4px 0' }}><strong>Date:</strong> {formatDateTime(invoiceDate)}</p>
+
+  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }} border="1">
+    <thead>
+      <tr style={{ backgroundColor: '#eee' }}>
+        <th style={{ padding: 4 }}>Item</th>
+        <th style={{ padding: 4 }}>Qty</th>
+        <th style={{ padding: 4 }}>Price</th>
+        <th style={{ padding: 4 }}>Total</th>
       </tr>
     </thead>
     <tbody>
-      {selectedItems.map((item, idx) => (
-        <tr key={item.id} style={{
-          backgroundColor: idx % 2 === 0 ? "#f9f9f9" : "#fff"
-        }}>
-          <td>{item.name}</td>
-          <td>{item.qty}</td>
-          <td>₹{item.cost}</td>
-          <td>₹{item.discount}</td>
-          <td>₹{(item.cost * item.qty) - item.discount}</td>
+      {selectedItems.map((item) => (
+        <tr key={item.id}>
+          <td style={{ padding: 4 }}>{item.name}</td>
+          <td style={{ padding: 4, textAlign: "center" }}>{item.qty}</td>
+          <td style={{ padding: 4, textAlign: "right" }}>₹{item.cost}</td>
+          <td style={{ padding: 4, textAlign: "right" }}>
+            ₹{(item.cost * item.qty) - item.discount}
+          </td>
         </tr>
       ))}
     </tbody>
   </table>
-  <div style={{ marginTop: "12px", fontSize: "14px" }}>
-    <p style={{ margin: "4px 0" }}>Subtotal: ₹{getSubtotal()}</p>
-    <p style={{ margin: "4px 0" }}>Discount: ₹{getDiscountTotal()}</p>
-    <h3 style={{
-      margin: "8px 0 0",
-      padding: "4px",
-      backgroundColor: "#007bff",
-      color: "white",
-      textAlign: "center",
-      borderRadius: "5px"
-    }}>Total: ₹{getFinalTotal()}</h3>
+
+  <div style={{ marginTop: 8 }}>
+    <p style={{ margin: '4px 0' }}>Subtotal: ₹{getSubtotal()}</p>
+    {getDiscountTotal() > 0 && (
+      <p style={{ margin: '4px 0' }}>Total Discount: ₹{getDiscountTotal()}</p>
+    )}
+    <h3 style={{ margin: '6px 0' }}>Total: ₹{getFinalTotal()}</h3>
   </div>
+
+  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold" }}>
+    Thank you for your order!
+  </p>
 </div>
+
 
 
 
