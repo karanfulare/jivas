@@ -140,42 +140,45 @@ link.click();
             style={{ display: 'block', marginBottom: 16 }}
           />
 
-          <div
+  <div
   ref={invoiceRef}
   style={{
     padding: 16,
     marginTop: 16,
-    backgroundColor: '#fff',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+    backgroundColor: '#fdf9ff',
+    border: '1px solid #ddd',
+    borderRadius: 8,
     fontSize: '14px',
     fontFamily: 'sans-serif',
-    lineHeight: '1.4',
-    color: '#000'
+    lineHeight: '1.5',
+    color: '#333'
   }}
 >
-  <h2 style={{ textAlign: "center", margin: 0, paddingBottom: 4 }}>Jiva's</h2>
-  <p style={{ margin: '4px 0' }}>
+  <h2 style={{ textAlign: "center", color: "#7b2cbf", margin: 0, paddingBottom: 8 }}>
+    Jiva's
+  </h2>
+  <p style={{ margin: '4px 0',paddingBottom: '14px' }}>
     <strong>Customer:</strong> {customer.name} ({customer.phone})
   </p>
-  <p style={{ margin: '4px 0' }}>
+  <p style={{ margin: '2px 0',paddingBottom: '14px' }}>
     <strong>Date:</strong> {formatDateTime(invoiceDate)}
   </p>
 
-  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }} border="1">
+  <table style={{ width: "100%", borderCollapse: "collapse", marginTop:5  }} border="1">
     <thead>
-      <tr style={{ backgroundColor: '#eee' }}>
-        <th style={{ padding: 4 }}>Item</th>
-        <th style={{ padding: 4 }}>Qty</th>
-        <th style={{ padding: 4 }}>Price</th>
-        <th style={{ padding: 4 }}>Discount</th>
-        <th style={{ padding: 4 }}>Total</th>
+      <tr style={{ backgroundColor: '#e0bbff', color: '#000' }}>
+        <th style={{ padding: 6 }}>Item</th>
+        <th style={{ padding: 6 }}>Qty</th>
+        <th style={{ padding: 6 }}>Price</th>
+        <th style={{ padding: 6 }}>Discount</th>
+        <th style={{ padding: 6 }}>Total</th>
       </tr>
     </thead>
     <tbody>
       {selectedItems.map((item) => (
         <tr key={item.id}>
-          <td style={{ padding: 4 }}>{item.name}</td>
-          <td style={{ padding: 4 }}>
+          <td style={{ padding: 6 }}>{item.name}</td>
+          <td style={{ padding: 6 }}>
             <input
               type="number"
               value={item.qty}
@@ -183,8 +186,8 @@ link.click();
               style={{ width: 40 }}
             />
           </td>
-          <td style={{ padding: 4, textAlign: "right" }}>₹{item.cost}</td>
-          <td style={{ padding: 4 }}>
+          <td style={{ padding: 6, textAlign: "right" }}>₹{item.cost}</td>
+          <td style={{ padding: 6 }}>
             <input
               type="number"
               value={item.discount}
@@ -192,7 +195,7 @@ link.click();
               style={{ width: 50 }}
             />
           </td>
-          <td style={{ padding: 4, textAlign: "right" }}>
+          <td style={{ padding: 6, textAlign: "right" }}>
             ₹{(item.cost * item.qty) - item.discount}
           </td>
         </tr>
@@ -200,18 +203,21 @@ link.click();
     </tbody>
   </table>
 
-  <div style={{ marginTop: 8 }}>
-    <p style={{ margin: '4px 0' }}>Subtotal: ₹{getSubtotal()}</p>
+  <div style={{ marginTop: 12, paddingTop: 8, borderTop: '1px solid #ccc' }}>
+    <p style={{ margin: '4px 0',paddingBottom: '14px' }}>Subtotal: ₹{getSubtotal()}</p>
     {getDiscountTotal() > 0 && (
-      <p style={{ margin: '4px 0' }}>Total Discount: ₹{getDiscountTotal()}</p>
+      <p style={{ margin: '4px 0', color: '#dc3545' }}>
+        Total Discount: ₹{getDiscountTotal()}
+      </p>
     )}
-    <h3 style={{ margin: '6px 0' }}>Total: ₹{getFinalTotal()}</h3>
+    <h3 style={{ margin: '6px 0', color: '#28a745' }}>Total: ₹{getFinalTotal()}</h3>
   </div>
 
-  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold" }}>
-    Thank you for your order!
+  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold", color: "#6a4c93",paddingBottom: '14px' }}>
+    Thank you for your order! 🎉
   </p>
 </div>
+
 
 
           <button onClick={generateImage} style={{ marginTop: 12 }}>
@@ -220,35 +226,51 @@ link.click();
         </div>
       )}
       {/* Hidden clean version for image */}
-<div id="clean-invoice" style={{
-  display: 'none',
-  padding: '16px',
-  fontFamily: 'sans-serif',
-  width: '300px',
-  fontSize: '14px',
-  lineHeight: '1.4',
-  color: '#000'
-}}>
-  <h2 style={{ textAlign: "center", margin: 0, paddingBottom: 4 }}>Jiva's</h2>
-  <p style={{ margin: '4px 0' }}><strong>Customer:</strong> {customer.name} ({customer.phone})</p>
-  <p style={{ margin: '4px 0' }}><strong>Date:</strong> {formatDateTime(invoiceDate)}</p>
+<div
+  id="clean-invoice"
+  style={{
+    display: 'none',
+    padding: 16,
+    fontFamily: "sans-serif",
+    fontSize: "14px",
+    width: "300px",
+    backgroundColor: '#fdf9ff',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    color: '#333',
+    lineHeight: '1.5',
+  }}
+>
+  <h2 style={{ textAlign: "center", color: "#7b2cbf", margin: 0, paddingBottom: 8 }}>
+    Jiva's
+  </h2>
+  <p style={{ margin: '4px 0',paddingBottom: '14px'  }}>
+    <strong>Customer:</strong> {customer.name} ({customer.phone})
+  </p>
+  <p style={{ margin: '4px 0',paddingBottom: '14px'  }}>
+    <strong>Date:</strong> {new Date().toLocaleString()}
+  </p>
 
-  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 8 }} border="1">
+  <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 10 }} border="1">
     <thead>
-      <tr style={{ backgroundColor: '#eee' }}>
-        <th style={{ padding: 4 }}>Item</th>
-        <th style={{ padding: 4 }}>Qty</th>
-        <th style={{ padding: 4 }}>Price</th>
-        <th style={{ padding: 4 }}>Total</th>
+      <tr style={{ backgroundColor: '#e0bbff', color: '#000' }}>
+        <th style={{ padding: 6 }}>Item</th>
+        <th style={{ padding: 6 }}>Qty</th>
+        <th style={{ padding: 6 }}>Price</th>
+        <th style={{ padding: 6 }}>Discount</th>
+        <th style={{ padding: 6 }}>Total</th>
       </tr>
     </thead>
     <tbody>
       {selectedItems.map((item) => (
         <tr key={item.id}>
-          <td style={{ padding: 4 }}>{item.name}</td>
-          <td style={{ padding: 4, textAlign: "center" }}>{item.qty}</td>
-          <td style={{ padding: 4, textAlign: "right" }}>₹{item.cost}</td>
-          <td style={{ padding: 4, textAlign: "right" }}>
+          <td style={{ padding: 6 }}>{item.name}</td>
+          <td style={{ padding: 6 }}>{item.qty}</td>
+          <td style={{ padding: 6, textAlign: "right" }}>₹{item.cost}</td>
+          <td style={{ padding: 6, textAlign: "right" }}>
+            ₹{item.discount > 0 ? item.discount : 0}
+          </td>
+          <td style={{ padding: 6, textAlign: "right" }}>
             ₹{(item.cost * item.qty) - item.discount}
           </td>
         </tr>
@@ -256,18 +278,21 @@ link.click();
     </tbody>
   </table>
 
-  <div style={{ marginTop: 8 }}>
-    <p style={{ margin: '4px 0' }}>Subtotal: ₹{getSubtotal()}</p>
+  <div style={{ marginTop: 12, paddingTop: 8, borderTop: '1px solid #ccc' }}>
+    <p style={{ margin: '4px 0' ,paddingBottom: '14px'  }}>Subtotal: ₹{getSubtotal()}</p>
     {getDiscountTotal() > 0 && (
-      <p style={{ margin: '4px 0' }}>Total Discount: ₹{getDiscountTotal()}</p>
+      <p style={{ margin: '4px 0', color: '#dc3545' }}>
+        Total Discount: ₹{getDiscountTotal()}
+      </p>
     )}
-    <h3 style={{ margin: '6px 0' }}>Total: ₹{getFinalTotal()}</h3>
+    <h3 style={{ margin: '6px 0', color: '#28a745' }}>Total: ₹{getFinalTotal()}</h3>
   </div>
 
-  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold" }}>
-    Thank you for your order!
+  <p style={{ textAlign: "center", marginTop: 12, fontWeight: "bold", color: "#6a4c93",paddingBottom:"14px" }}>
+    Thank you for your order! 🎉
   </p>
 </div>
+
 
 
 
