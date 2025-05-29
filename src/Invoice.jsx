@@ -204,9 +204,9 @@ link.click();
   </table>
 
   <div style={{ marginTop: 12, paddingTop: 8, borderTop: '1px solid #ccc' }}>
-    <p style={{ margin: '4px 0',paddingBottom: '14px' }}>Subtotal: ₹{getSubtotal()}</p>
+    <p style={{ margin: '4px 0',paddingBottom: '14px',textAlign: "right" }}>Subtotal: ₹{getSubtotal()}</p>
     {getDiscountTotal() > 0 && (
-      <p style={{ margin: '4px 0', color: '#dc3545' }}>
+      <p style={{ margin: '4px 0',paddingBottom: '14px',textAlign: "right", color: '#dc3545' }}>
         Total Discount: ₹{getDiscountTotal()}
       </p>
     )}
@@ -264,8 +264,8 @@ link.click();
     <tbody>
       {selectedItems.map((item) => (
         <tr key={item.id}>
-          <td style={{ padding: 6 }}>{item.name}</td>
-          <td style={{ padding: 6 }}>{item.qty}</td>
+          <td style={{ padding: 6 ,textAlign: "right" }}>{item.name}</td>
+          <td style={{ padding: 6 ,textAlign: "right" }}>{item.qty}</td>
           <td style={{ padding: 6, textAlign: "right" }}>₹{item.cost}</td>
           <td style={{ padding: 6, textAlign: "right" }}>
             ₹{item.discount > 0 ? item.discount : 0}
@@ -279,9 +279,9 @@ link.click();
   </table>
 
   <div style={{ marginTop: 12, paddingTop: 8, borderTop: '1px solid #ccc' }}>
-    <p style={{ margin: '4px 0' ,paddingBottom: '14px'  }}>Subtotal: ₹{getSubtotal()}</p>
+    <p style={{ margin: '4px 0' ,paddingBottom: '14px' ,textAlign: "right" }}>Subtotal: ₹{getSubtotal()}</p>
     {getDiscountTotal() > 0 && (
-      <p style={{ margin: '4px 0', color: '#dc3545' }}>
+      <p style={{ margin: '4px 0',paddingBottom: '14px',textAlign: "right", color: '#dc3545' }}>
         Total Discount: ₹{getDiscountTotal()}
       </p>
     )}
