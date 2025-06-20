@@ -10,7 +10,10 @@ const sampleItems = [
   { id: 7, name: 'Poha', cost: 45 },
   { id: 8, name: 'Aloo Paratha', cost: 100 },
   { id: 9, name: 'Hot Chocolate', cost: 79 },
-  { id: 10, name: 'Hot Chocolate small', cost: 60 }
+  { id: 10, name: 'Hot Chocolate small', cost: 60 },
+    { id: 11, name: 'Fries', cost: 100 },
+      { id: 12, name: 'Cold Coffe', cost: 60 }
+  
 ];
 
 export default function InvoiceGenerator() {
